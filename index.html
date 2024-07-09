@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Data Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .card {
+      margin: 10px;
+      flex: 1 0 30%;
+    }
+    .title {
+      display: flex;
+      align-items: center;
+    }
+    .title > .total {
+      font-size: 24px;
+      font-weight: bold;
+      margin-right: 12px;
+    }
+    .title > .type {
+      text-transform: uppercase;
+    }
+    .sub-container {
+      margin: 8px 16px;
+    }
+    .sub-title {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .item-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 360px;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 4px;
+      margin: 4px;
+    }
+    .item-number {
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+    .item-country {
+      padding: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="dataContainer">
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById('dataContainer');
+          data.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+              <div class="title">
+                <b class="total">${item.total}</b>
+                <p class="type">${item.type}</p>
+              </div>
+              <div class="sub-container">
+                <div class="sub-title">By Country</div>
+                <div class="item-group">
+                  <div class="item" style="background-color: ${item.background}">
+                    <div class="item-number" style="background-color: ${item.foreground}">${item.number1}</div>
+                    <div class="item-country" style="color: ${item.foreground}">Australia</div>
+                  </div>
+                  <div class="item" style="background-color: ${item.background}">
+                    <div class="item-number" style="background-color: ${item.foreground}">${item.number2}</div>
+                    <div class="item-country" style="color: ${item.foreground}">Ghana</div>
+                  </div>
+                  <div class="item" style="background-color: ${item.background}">
+                    <div class="item-number" style="background-color: ${item.foreground}">${item.number3}</div>
+                    <div class="item-country" style="color: ${item.foreground}">Indonesia</div>
+                  </div>
+                  <div class="item" style="background-color: ${item.background}">
+                    <div class="item-number" style="background-color: ${item.foreground}">${item.number4}</div>
+                    <div class="item-country" style="color: ${item.foreground}">Keyna</div>
+                  </div>
+                </div>
+              </div>
+              
+            `;
+            container.appendChild(card);
+          });
+        });
+    });
+  </script>
+
+</body>
+</html>

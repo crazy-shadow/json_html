@@ -1,0 +1,32 @@
+[
+    {
+        "type": "men",
+        "background": "#d7f5f3",
+        "foreground": "#38b2ac",
+        "number1": "12.84M",
+        "number2": "16.46M",
+        "number3": "139.13M",
+        "number4": "27.32M",
+        "total": "212.9M"
+    },
+    {
+        "type": "women",
+        "background": "#e9e0ff",
+        "foreground": "#553c9a",
+        "number1": "12.94M",
+        "number2": "16.38M",
+        "number3": "137.23M",
+        "number4": "27.66M",
+        "total": "212.9M"
+    },
+    {
+        "type": "youth",
+        "background": "#cce6ff",
+        "foreground": "#3182ce",
+        "number1": "5.71M",
+        "number2": "14.62M",
+        "number3": "82.96M",
+        "number4": "24.42M",
+        "total": "172.9M"
+    }
+]
